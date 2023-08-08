@@ -3,7 +3,6 @@
 ## Description
 This is an offering recommendation system API developed PeiFong Sun which gives you recommended Fetch Reward offerings based on user input.
   
-![alt text](https://github.com/blueboard/offering-search/blob/main/Offering%20recommender%20system%20data%20model.png)  
 
 ## Summary
 This documentation will show you how to use the API and how we develop it, including:
