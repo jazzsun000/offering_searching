@@ -85,6 +85,14 @@ c. Handling Missing Values:
 
 Any NaN values are replaced with empty strings for smoother processing.
 
+Method Descriptions:
+
+fill_offer_column: This method iterates through the OFFER column, and if a value is missing, fills it with the default message mentioned above.
+
+stem_lower_text: This method handles the stemming and lowercasing of the text. It uses the PorterStemmer from the nltk library to achieve this. Make sure you have nltk library installed to utilize this functionality.
+
+preprocess_text: This is a comprehensive method that uses the above methods to preprocess specified columns in the dataframe.
+
 ### Method Descriptions:
 
 fill_offer_column: This method iterates through the OFFER column, and if a value is missing, fills it with the default message mentioned above.
