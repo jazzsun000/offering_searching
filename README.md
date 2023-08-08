@@ -1,7 +1,7 @@
 # offering-search API
 
 ## Description
-This is an offering recommendation system API developed PeiFong Sun which gives you recommended Fetch Reward offerings based on user input.
+This is an offering recommendation system API developed by FastAPI which gives you recommended Fetch Reward offerings based on user input.
   
 
 ## Summary
