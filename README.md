@@ -117,20 +117,20 @@ with bz2.BZ2File('df_processed_df.bz2', 'w') as f:
     df.to_csv(f, index=False, compression='bz2')
 ``` 
 
-# Run the API  
+# Run the API using FastAPI
   
 Note: If you want to skip the preprocessing step a [df_processed_df.bz2](offering_search_API/df_processed_df.bz2) file has been provided. 
 
 ## Retrieving offering information
 To retrieve recommendations offering information, send a POST request to your_server_name/recommend.  
 
-Detailed instructions on how the offering search is performed can be found by reading the comments in the recommendation.offering_search() class method in the [recommendation_model.py](FastAPI_model/recommendation_model.py#L683) file. 
+Detailed instructions on how the offering search is performed can be found by reading the comments in the recommendation() class method in the [recommendation.py](offering_search_API/recommendation.py) file. 
 
 ## Starting the API
 
-1.  Place the [main.py](FastAPI_model/main.py) and [recommendation_model.py](FastAPI_model/recommendation_model.py) files located in the [FastAPI_model](FastAPI_model/) folder in the same directory on your machine along with the __.bz2__ you created earlier in the preprocessing section (this file must be named **processed_offering_search.bz2** for the app to correctly load it).  
+1.  Place the [main.py](offering_search_API/main.py) and [recommendation.py](offering_search_API/recommendation.py) files located in the [offering_search_API](offering_search_API/) folder in the same directory on your machine along with the __.bz2__ you created earlier in the preprocessing section (this file must be named **df_processed_df.bz2** for the app to correctly load it).  
   
-2.  From the command line, install the [requirements.txt](FastAPI_model/requirements.txt) and launch the local server in your directory FastAPI_model
+2.  From the command line, install the [requirements.txt](offering_search_API/requirements.txt) and launch the local server in your directory offering_search_API
 
 Install required libraries
 
