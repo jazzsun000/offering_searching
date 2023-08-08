@@ -148,11 +148,7 @@ uvicorn main:app --reload
  1. Send the request to your_server_name/recommend as a json object in the following format:
 ```json
 {
-  "query": "string",
-  "price": 0,
-  "weights": [
-    0,0,0,0
-  ]
+  "query": "string"
 }
 ```
 
@@ -160,9 +156,7 @@ Request Parameters
 
 **query**: (string) The offering you want to retrieve information for.
 
-**price**: (int) The offering price you want to retrieve, you can only choose from [150, 250, 500, 1000, 2500, 5000, 10000, 15000, 20000, 25000]
 
-**weights**: (list [float]) Represents vector weights [location score weight, search query relevancy score weight, offering feedback rating score weight, provider score weight]
 
 We will use curl and post method to call the API in the documentation, but you can use whatever service you like.
 
@@ -170,11 +164,7 @@ Example request
 
 ```console 
 curl -X 'POST'   'http://localhost:8000/recommend/'   -H 'accept: application/json'   -H 'Content-Type: application/json'   -d '{
-  "query": "I want to see a basketball at Seattle",
-  "price": 250,
-  "weights": [
-    0.6,0.2,0.1,0.1
-  ]
+  "query": "target"
 }'
 
 ```  
@@ -183,55 +173,31 @@ curl -X 'POST'   'http://localhost:8000/recommend/'   -H 'accept: application/js
  
 Response Parameters
 
-**Name**: The top 25 offering names we recommend.
+**OFFER**: The top 10 offer description we recommend.
 
-**Experience Location**: The corresponding offering location name.
+**weight_similarity_score**: The corresponding weight score of offering
 
-**Category Name**: The corresponding offering category name.
-
-**Bucket Price**: The corresponding offering price we will retrieve, they will range from [150, 250, 500, 1000, 2500, 5000, 10000, 15000, 20000, 25000]
-
-**Subdescription Text**: The corresponding description text of the offering.
-
-**Provider Name Combined**: The corresponding provider name of the offering.
-
-**Rating Score**: The corresponding feedback rating score of the offering.
-
-**Provider Score**: The corresponding provider rating score of the offering.
-
-**Location Score**: The corresponding Location score of the offering.
- 
- Location Score Formula:  
- Using median distance of all to minus target distance then divided by median of distance
-
-
-**Relevancy Score**: The corresponding search query relevancy score of the offering, we built in tfidf model.
-
-**Weighted Score**: The corresponding weight score of offering
-
-Weight score= Location_weight x Location_score +search query relevancy score weight x Relevancy Score + offering feedback rating score weight x Rating Score+ Provider score weight x Provider score
+Weight score= Offer_weight:0.4 x Offering_similarity_score + (Retailer score weight:0.5 x Retailer score or Brand score weight:0.5 x Brand score or Category score weight:0.5 x Category score) + Receipt_weight:0.1 x Receipt_normalized_score
 
 Response Format
 
 If the request is successful, the API will return a JSON object containing top 25 weight score offering information in the following json format:
 
 ```console 
-{
-   "NAME": {
-       "2": "Cook Like a Chef",
-       "4": "Rock Out at a Concert",
-       "8": "Tickets to a NBA Game",
-       "1": "Cheer on the Seattle Storm",
-       "33": "Marvel at the Theater",
-       "40": "Seattle Brewery Tour",
-       "38": "All About the Vino",
-       "27": "Kick It at a Sounders Game",
-       "55": "See Seattle from a Chopper",
-       "42": "Ultimate Seattle Skytour",
-       "28": "Cheer on the Trailblazers",
-       "44": "Food Tour with Friends",
-       "59": "Animal Hour",
-       "63": "Segway Seattle",
+{"OFFER":{"1165":"Dove Hand Wash, select varieties at Target",
+"9621":"Dove Hand Wash,select varieties at Target",
+"562":"Dove Hand Wash,select varieties at Target",
+"183":"Dove Hand Wash,select varieties at Target",
+"182":"Dove Hand Wash, select varieties, buy 2 at Target",
+"561":"Dove Hand Wash, select varieties, buy 2 at Target",
+"9620":"Dove Hand Wash, select varieties, buy 2 at Target",
+"1164":"Dove Hand Wash, select varieties, buy 2 at Target",
+"985":"L'Oréal Paris Makeup, spend $35 at Target",
+"986":"L'Oréal Paris Makeup, spend $30 at Target"},
+"weight_similarity_score_retailer":
+{"1165":0.661,"9621":0.661,"562":0.661,
+"183":0.661,"182":0.653,"561":0.652,"9620":0.652,
+"1164":0.652,"985":0.647,"986":0.645}}
 ……
 
 ```  
