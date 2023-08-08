@@ -101,9 +101,25 @@ stem_lower_text: This method handles the stemming and lowercasing of the text. I
 
 preprocess_text: This is a comprehensive method that uses the above methods to preprocess specified columns in the dataframe.
 
+## DataFrame Compression for Optimized API Loading
+
+In the evolving world of data science and web services, speed and efficiency play a pivotal role. A primary concern for many APIs is the time taken to read data, especially when the dataset is voluminous. To address this, we present a method to store our preprocessed data in a compressed format, specifically the .bz2 format. This enables faster reads when the API loads the data, optimizing overall performance.
+
+Compression using bz2
+
+bz2 is a data compression format known for its good compression ratios and fast decompression times. By storing the dataframe in this format, we drastically reduce the time taken to load data when initializing our API, enhancing the user experience.
+
+Import the necessary module and save the preprocessed DataFrame as a compressed bz2 file
+
+```console
+import bz2
+with bz2.BZ2File('df_processed_df.bz2', 'w') as f:
+    df.to_csv(f, index=False, compression='bz2')
+``` 
+
 # Run the API  
   
-Note: If you want to skip the preprocessing step a [processed_offering_search.bz2](FastAPI_model/processed_offering_search.bz2) file has been provided. This file has the preprocessed data from the provided [offering_search.csv](data/offering_search.csv) file.
+Note: If you want to skip the preprocessing step a [df_processed_df.bz2](offering_searching/df_processed_df.bz2) file has been provided. This file has the preprocessed data from the provided [offering_search.csv](data/offering_search.csv) file.
 
 ## Retrieving offering information
 To retrieve recommendations offering information, send a POST request to your_server_name/recommend.  
