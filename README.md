@@ -158,7 +158,8 @@ Request Parameters
 
 
 
-We will use curl and post method to call the API in the documentation, but you can use whatever service you like.
+Launched another terminal under the offering_search_API
+folder, we will use curl and post method to call the API in the documentation, but you can use whatever service you like.
 
 Example request
 
@@ -185,7 +186,8 @@ If the request is successful, the API will return a JSON object containing top 2
 
 ```console
 
-{"OFFER":{"1165":"Dove Hand Wash, select varieties at Target",
+{"OFFER":
+{"1165":"Dove Hand Wash, select varieties at Target",
 "9621":"Dove Hand Wash,select varieties at Target",
 "562":"Dove Hand Wash,select varieties at Target",
 "183":"Dove Hand Wash,select varieties at Target",
@@ -196,9 +198,16 @@ If the request is successful, the API will return a JSON object containing top 2
 "985":"L'Oréal Paris Makeup, spend $35 at Target",
 "986":"L'Oréal Paris Makeup, spend $30 at Target"},
 "weight_similarity_score_retailer":
-{"1165":0.661,"9621":0.661,"562":0.661,
-"183":0.661,"182":0.653,"561":0.652,"9620":0.652,
-"1164":0.652,"985":0.647,"986":0.645}}
+{"1165":0.661,
+"9621":0.661,
+"562":0.661,
+"183":0.661,
+"182":0.653,
+"561":0.652,
+"9620":0.652,
+"1164":0.652,
+"985":0.647,
+"986":0.645}}
 ……
 
 ```  
