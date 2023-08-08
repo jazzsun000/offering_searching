@@ -232,7 +232,10 @@ curl -X 'POST'   'http://localhost:8000/recommend/'   -H 'accept: application/js
 
 ```  
 
- 2. Get the corresponding response. 
+ 2. Get the corresponding response.
+
+![alt text](https://github.com/jazzsun000/offering_searching/blob/main/offering_search_API/target_result.png)
+  
  
 Response Parameters
 
