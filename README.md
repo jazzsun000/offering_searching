@@ -38,9 +38,13 @@ We utilize a combination of text processing techniques and similarity computatio
 
 To ensure the accuracy of our similarity calculations, the first step is to standardize the text. This involves:
 
-Stemming: Truncating words to their root form to treat words like 'running', 'runner', and 'ran' as the same entity.
+Stemming: 
 
-TF-IDF Vectorization: Transforming text into numerical vectors while emphasizing the importance of terms that are unique to specific documents.
+Truncating words to their root form to treat words like 'running', 'runner', and 'ran' as the same entity.
+
+TF-IDF Vectorization: 
+
+Transforming text into numerical vectors while emphasizing the importance of terms that are unique to specific documents.
 
 ## 2. Similarity Computation:
 
