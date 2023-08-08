@@ -203,7 +203,8 @@ Launch the API to the local server
 
 ```console 
 uvicorn main:app --reload
-```  
+```
+![alt text](https://github.com/jazzsun000/offering_searching/blob/main/offering_search_API/server_launched.png)
   
 ## Using the API  
  1. Send the request to your_server_name/recommend as a json object in the following format:
