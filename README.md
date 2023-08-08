@@ -49,11 +49,17 @@ We employ the cosine similarity metric to measure the similarity between the use
 ## 3. Dynamic Retrieval:
 The actual retrieval of offers is done in stages:
 
-a. Direct Matches: First, we check for direct matches in categories. If a user searches for a category, brand, or retailer that is directly present in our database, we prioritize those offers.
+a. Direct Matches: 
 
-b. Weighted Averages: For a more generic search, we rely on averaged similarity scores across categories. We identify the category with the highest mean similarity score and provide offers from that category.
+First, we check for direct matches in categories. If a user searches for a category, brand, or retailer that is directly present in our database, we prioritize those offers.
 
-c. Final Compilation: Offers are then sorted based on their similarity scores, ensuring users see the most relevant offers first.
+b. Weighted Averages: 
+
+For a more generic search, we rely on averaged similarity scores across categories. We identify the category with the highest mean similarity score and provide offers from that category.
+
+c. Final Compilation: 
+
+Offers are then sorted based on their similarity scores, ensuring users see the most relevant offers first.
 
 Key Functions:
 
