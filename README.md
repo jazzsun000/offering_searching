@@ -119,7 +119,7 @@ with bz2.BZ2File('df_processed_df.bz2', 'w') as f:
 
 # Run the API  
   
-Note: If you want to skip the preprocessing step a [df_processed_df.bz2](offering_searching/df_processed_df.bz2) file has been provided. 
+Note: If you want to skip the preprocessing step a [df_processed_df.bz2](offering_search_API/df_processed_df.bz2) file has been provided. 
 
 ## Retrieving offering information
 To retrieve recommendations offering information, send a POST request to your_server_name/recommend.  
