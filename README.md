@@ -1,3 +1,16 @@
+# Dynamic Offer Retrieval Based on Search Queries
+
+## Problem Overview
+
+In the e-commerce space, providing relevant offers to users based on their search intent is paramount. However, this intent can vary widely:
+
+Category-based: Users might search for broad categories such as "diapers".
+Brand-focused: Users might have brand preferences, for instance, "Huggies".
+Retailer-centric: Users might show loyalty towards certain retailers, for example, "Target".
+
+Our challenge is to devise a system that dynamically gauges user intent based on their search query, filters through a vast database of offers, and delivers the most relevant results. Importantly, transparency is key; we should also reveal the similarity scores which power our recommendations.
+
+
 # offering-search API
 
 ## Description
@@ -12,7 +25,7 @@ This documentation will show you how to use the API and how we develop it, inclu
 - how to send requests 
 - required parameters
 - recommendation response format
-- How we develop the API
+
 
 
 
