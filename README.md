@@ -183,7 +183,8 @@ Response Format
 
 If the request is successful, the API will return a JSON object containing top 25 weight score offering information in the following json format:
 
-```console 
+```console
+
 {"OFFER":{"1165":"Dove Hand Wash, select varieties at Target",
 "9621":"Dove Hand Wash,select varieties at Target",
 "562":"Dove Hand Wash,select varieties at Target",
