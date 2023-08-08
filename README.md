@@ -5,13 +5,15 @@
 In the e-commerce space, providing relevant offers to users based on their search intent is paramount. However, this intent can vary widely:
 
 Category-based: Users might search for broad categories such as "diapers".
+
 Brand-focused: Users might have brand preferences, for instance, "Huggies".
+
 Retailer-centric: Users might show loyalty towards certain retailers, for example, "Target".
 
 Our challenge is to devise a system that dynamically gauges user intent based on their search query, filters through a vast database of offers, and delivers the most relevant results. Importantly, transparency is key; we should also reveal the similarity scores which power our recommendations.
 
 
-# offering-search API
+# Solution:offering-search API
 
 ## Description
 This is an offering recommendation system API developed by FastAPI which gives you recommended Fetch Reward offerings based on user input.
@@ -19,6 +21,8 @@ This is an offering recommendation system API developed by FastAPI which gives y
 
 ## Summary
 This documentation will show you how to use the API and how we develop it, including:
+
+- Key approachs to the problem
 - how to retrieve the data
 - how to perform data preprocessing
 - how to start the API
@@ -26,10 +30,43 @@ This documentation will show you how to use the API and how we develop it, inclu
 - required parameters
 - recommendation response format
 
+# Approach
+
+We utilize a combination of text processing techniques and similarity computations to retrieve the most pertinent offers:
+
+## 1. Text Preprocessing:
+
+To ensure the accuracy of our similarity calculations, the first step is to standardize the text. This involves:
+
+Stemming: Truncating words to their root form to treat words like 'running', 'runner', and 'ran' as the same entity.
+TF-IDF Vectorization: Transforming text into numerical vectors while emphasizing the importance of terms that are unique to specific documents.
+
+## 2. Similarity Computation:
+
+We employ the cosine similarity metric to measure the similarity between the user's search query and our database of offers. For every category (i.e., offers, brands, and retailers), we compute a similarity score, showcasing how aligned a given offer is to the user's search intent.
+
+## 3. Dynamic Retrieval:
+The actual retrieval of offers is done in stages:
+
+a. Direct Matches: First, we check for direct matches in categories. If a user searches for a category, brand, or retailer that is directly present in our database, we prioritize those offers.
+
+b. Weighted Averages: For a more generic search, we rely on averaged similarity scores across categories. We identify the category with the highest mean similarity score and provide offers from that category.
+
+c. Final Compilation: Offers are then sorted based on their similarity scores, ensuring users see the most relevant offers first.
+
+Key Functions:
+
+calculate_similarity: 
+Calculates cosine similarity between the user's search query and the provided columns.
+
+top_offers_average: 
+Determines the top offers based on direct matches or averaged similarity scores, depending on the nature of the search query.
+
+offering_search: 
+This is the primary function that integrates the above components to provide a list of top offers for a given search query, complete with similarity scores.
 
 
-
-# Initialization 
+# Process
   
 ## Retrieve the data from csv files then get offers data
 
