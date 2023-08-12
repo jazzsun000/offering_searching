@@ -32,7 +32,13 @@ This documentation will show you how to use the API and how we develop it, inclu
 
 # Approach
 
-We utilize a combination of text processing techniques and similarity computations to retrieve the most pertinent offers:
+We utilize a combination of text processing techniques and similarity computations to retrieve the most pertinent offers.
+
+# Model selection
+
+We opted to use the TF-IDF algorithm instead of models such as spaCy or BERT. The primary reason for this decision is the efficiency in response time. 
+
+While the TF-IDF algorithm delivers results in just 0.3 seconds, both spaCy and BERT models take more than 2 minutes to return a response. Such a prolonged wait time would negatively impact user experience during search queries.
 
 ## 1. Text Preprocessing:
 
